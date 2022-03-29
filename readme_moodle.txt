@@ -4,7 +4,7 @@ Twitter bootstrap
 -----------------
 
 Sass:
-This theme uses Bootstrap version 4.5.0
+This theme uses Bootstrap version 4.6.0
 The Bootstrap repository is available on:
 
 https://github.com/twitter/bootstrap.git
@@ -12,10 +12,10 @@ https://github.com/twitter/bootstrap.git
 To update to the latest release of twitter bootstrap:
 
 * download bootstrap to your home folder
-* remove folder theme/boost_comp/scss/bootstrap
-* copy the scss files from ~/bootstrap/scss to theme/boost_comp/scss/bootstrap
+* remove folder theme/boost_comp_it/scss/bootstrap
+* copy the scss files from ~/bootstrap/scss to theme/boost_comp_it/scss/bootstrap
 * comment out left: 0; from .popover {} in scss/bootstrap/_popover.scss. In RTL mode this prevents popovers from showing and it is not required in LTR mode.
-* comment out this line in theme/boost_comp/scss/_print.scss
+* comment out this line in theme/boost_comp_it/scss/_print.scss
     @page {
        size: $print-page-size;
     }
@@ -24,9 +24,13 @@ To update to the latest release of twitter bootstrap:
 
 Javascript:
 
-* copy the js files from ~/bootstrap/js/src to theme/boost_comp/amd/src/bootstrap (including the subfolder)
+* remove folder theme/boost_comp_it/amd/src/bootstrap
+* copy the js files from ~/bootstrap/js/src to theme/boost_comp_it/amd/src/bootstrap (including the subfolder)
+* copy index.js from ~/bootstrap/js to theme/boost_comp_it/amd/src
+* edit theme/boost_comp_it/amd/src/index.js and update import path (src -> bootstrap)
 * Moodle core includes the popper.js library, make sure each of the new Bootstrap js files
-includes the 'core/popper' library instead of 'popper.js'. For version 4.5.0 these files were: tooltip.js and dropdown.js
+includes the 'core/popper' library instead of 'popper.js'. For version 4.6.0 these files were: tooltip.js and dropdown.js
 * update ./thirdpartylibs.xml to include all new Bootstrap js files
-* run "Grunt ignorefiles" to prevent linting errors appearing from the new Bootstrap js files.
-* in folder theme/boost_comp run "Grunt amd" to compile the bootstrap JS
+* run "grunt ignorefiles" to prevent linting errors appearing from the new Bootstrap js files.
+* in folder theme/boost_comp_it run "grunt amd" to compile the bootstrap JS
+* in folder theme/boost_comp_it run "grunt css" to compile scss

@@ -15,9 +15,9 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost_comp/maintenance
+    @template theme_boost_comp_it/maintenance
 
-    boost_comp maintenance layout template.
+    boost_comp_it maintenance layout template.
 
     Context variables required for this template:
     * output - The core renderer for the page
@@ -74,8 +74,8 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_boost_comp/loader');
-require(['theme_boost_comp/loader'], function() {
-  M.util.js_complete('theme_boost_comp/loader');
+M.util.js_pending('theme_boost_comp_it/loader');
+require(['theme_boost_comp_it/loader'], function() {
+  M.util.js_complete('theme_boost_comp_it/loader');
 });
 {{/js}}

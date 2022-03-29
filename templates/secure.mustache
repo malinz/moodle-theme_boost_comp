@@ -15,9 +15,9 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost_comp/secure
+    @template theme_boost_comp_it/secure
 
-    boost_comp secure layout template.
+    boost_comp_it secure layout template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -34,7 +34,7 @@
          }
     }
 }}
-{{> theme_boost_comp/head }}
+{{> theme_boost_comp_it/head }}
 
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
@@ -43,7 +43,7 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{>theme_boost_comp/navbar-secure}}
+    {{>theme_boost_comp_it/navbar-secure}}
 
     <div id="page" class="container-fluid">
         {{! Secured full header }}
@@ -88,8 +88,8 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_boost_comp/loader');
-require(['theme_boost_comp/loader'], function() {
-    M.util.js_complete('theme_boost_comp/loader');
+M.util.js_pending('theme_boost_comp_it/loader');
+require(['theme_boost_comp_it/loader'], function() {
+    M.util.js_complete('theme_boost_comp_it/loader');
 });
 {{/js}}

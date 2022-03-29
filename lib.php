@@ -17,7 +17,7 @@
 /**
  * Theme functions.
  *
- * @package    theme_boost_comp
+ * @package    theme_boost_comp_it
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,8 +30,10 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $tree The CSS tree.
  * @param theme_config $theme The theme config object.
  */
-function theme_boost_comp_css_tree_post_processor($tree, $theme) {
-    $prefixer = new theme_boost_comp\autoprefixer($tree);
+function theme_boost_comp_it_css_tree_post_processor($tree, $theme) {
+    error_log('theme_boost_comp_it_css_tree_post_processor() is deprecated. Required' .
+        'prefixes for Bootstrap are now in theme/boost_comp_it/scss/moodle/prefixes.scss');
+    $prefixer = new theme_boost_comp_it\autoprefixer($tree);
     $prefixer->prefix();
 }
 
@@ -41,7 +43,7 @@ function theme_boost_comp_css_tree_post_processor($tree, $theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_boost_comp_get_extra_scss($theme) {
+function theme_boost_comp_it_get_extra_scss($theme) {
     $content = '';
     $imageurl = $theme->setting_file_url('backgroundimage', 'backgroundimage');
 
@@ -68,9 +70,9 @@ function theme_boost_comp_get_extra_scss($theme) {
  * @param array $options
  * @return bool
  */
-function theme_boost_comp_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_boost_comp_it_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'logo' || $filearea === 'backgroundimage')) {
-        $theme = theme_config::load('boost_comp');
+        $theme = theme_config::load('boost_comp_it');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {
             $options['cacheability'] = 'public';
@@ -87,7 +89,7 @@ function theme_boost_comp_pluginfile($course, $cm, $context, $filearea, $args, $
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_boost_comp_get_main_scss_content($theme) {
+function theme_boost_comp_it_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
@@ -96,42 +98,42 @@ function theme_boost_comp_get_main_scss_content($theme) {
 
     $context = context_system::instance();
     if ($filename == 'default.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/default.scss');
         } else if ($filename == 'unitec-00.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-00.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-00.scss');
     } else if ($filename == 'unitec-01.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-01.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-01.scss');
     } else if ($filename == 'unitec-02.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-02.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-02.scss');
     } else if ($filename == 'unitec-03.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-03.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-03.scss');
     } else if ($filename == 'unitec-04.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-04.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-04.scss');
     } else if ($filename == 'unitec-05.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-05.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-05.scss');
     } else if ($filename == 'unitec-06.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-06.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-06.scss');
     } else if ($filename == 'unitec-07.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-07.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-07.scss');
     } else if ($filename == 'unitec-08.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-08.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-08.scss');
     } else if ($filename == 'unitec-09.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-09.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-09.scss');
     } else if ($filename == 'unitec-10.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/unitec-10.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/unitec-10.scss');
     } else if ($filename == 'police.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/police.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/police.scss');
     } else if ($filename == 'hawkins.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/hawkins.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/hawkins.scss');
     } else if ($filename == 'swift.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/swift.scss');     
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/swift.scss');     
     } else if ($filename == 'plain.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/plain.scss');
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost_comp', 'preset', 0, '/', $filename))) {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/plain.scss');
+    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost_comp_it', 'preset', 0, '/', $filename))) {
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_comp_it/scss/preset/default.scss');
     }
 
     return $scss;
@@ -142,9 +144,9 @@ function theme_boost_comp_get_main_scss_content($theme) {
  *
  * @return string compiled css
  */
-function theme_boost_comp_get_precompiled_css() {
+function theme_boost_comp_it_get_precompiled_css() {
     global $CFG;
-    return file_get_contents($CFG->dirroot . '/theme/boost_comp/style/moodle.css');
+    return file_get_contents($CFG->dirroot . '/theme/boost_comp_it/style/moodle.css');
 }
 
 /**
@@ -153,7 +155,7 @@ function theme_boost_comp_get_precompiled_css() {
  * @param theme_config $theme The theme config object.
  * @return array
  */
-function theme_boost_comp_get_pre_scss($theme) {
+function theme_boost_comp_it_get_pre_scss($theme) {
     global $CFG;
 
     $scss = '';

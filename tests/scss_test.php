@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the unittests for boost_comp's scss compilation.
+ * This file contains the unittests for boost_comp_it's scss compilation.
  *
- * @package   theme_boost_comp
+ * @package   theme_boost_comp_it
  * @copyright 2018 Cameron Ball <cameron@cameron1729.xyz>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,13 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Unit tests for scss compilation.
  *
- * @package   theme_boost_comp
+ * @package   theme_boost_comp_it
  * @copyright 2016 onwards Ankit Agarwal
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_boost_comp_scss_testcase extends advanced_testcase {
+class theme_boost_comp_it_scss_testcase extends advanced_testcase {
     /**
-     * Test that boost_comp can be compiled using SassC (the defacto implemention).
+     * Test that boost_comp_it can be compiled using SassC (the defacto implemention).
      */
     public function test_scss_compilation_with_sassc() {
         if (!defined('PHPUNIT_PATH_TO_SASSC')) {
@@ -44,7 +44,7 @@ class theme_boost_comp_scss_testcase extends advanced_testcase {
         set_config('pathtosassc', PHPUNIT_PATH_TO_SASSC);
 
         $this->assertNotEmpty(
-            theme_config::load('boost_comp')->get_css_content_debug('scss', null, null)
+            theme_config::load('boost_comp_it')->get_css_content_debug('scss', null, null)
         );
     }
 }

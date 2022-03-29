@@ -1,6 +1,6 @@
-@javascript @theme_boost_comp
+@javascript @theme_boost_comp_it
 Feature: Region main settings menu
-  To navigate in boost_comp theme I need to use the region main settings menu
+  To navigate in boost_comp_it theme I need to use the region main settings menu
 
   Background:
     Given the following "courses" exist:

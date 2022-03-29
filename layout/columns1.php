@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A one column layout for the boost_comp theme.
+ * A one column layout for the boost_comp_it theme.
  *
- * @package   theme_boost_comp
+ * @package   theme_boost_comp_it
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,5 +32,5 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
-echo $OUTPUT->render_from_template('theme_boost_comp/columns1', $templatecontext);
+echo $OUTPUT->render_from_template('theme_boost_comp_it/columns1', $templatecontext);
 

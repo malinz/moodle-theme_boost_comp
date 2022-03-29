@@ -1,6 +1,6 @@
-@javascript @theme_boost_comp
+@javascript @theme_boost_comp_it
 Feature: Context settings menu
-  To navigate in boost_comp theme I need to use the context settings menu
+  To navigate in boost_comp_it theme I need to use the context settings menu
 
   Background:
     Given the following "courses" exist:

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   theme_boost_comp
+ * @package   theme_boost_comp_it
  * @copyright 2016 Ryan Wyllie
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -23,18 +23,18 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-    $settings = new theme_boost_comp_admin_settingspage_tabs('themesettingboost_comp', get_string('configtitle', 'theme_boost_comp'));
-    $page = new admin_settingpage('theme_boost_comp_general', get_string('generalsettings', 'theme_boost_comp'));
+    $settings = new theme_boost_comp_it_admin_settingspage_tabs('themesettingboost_comp_it', get_string('configtitle', 'theme_boost_comp_it'));
+    $page = new admin_settingpage('theme_boost_comp_it_general', get_string('generalsettings', 'theme_boost_comp_it'));
 
     // Preset.
-    $name = 'theme_boost_comp/preset';
-    $title = get_string('preset', 'theme_boost_comp');
-    $description = get_string('preset_desc', 'theme_boost_comp');
+    $name = 'theme_boost_comp_it/preset';
+    $title = get_string('preset', 'theme_boost_comp_it');
+    $description = get_string('preset_desc', 'theme_boost_comp_it');
     $default = 'default.scss';
 
     $context = context_system::instance();
     $fs = get_file_storage();
-    $files = $fs->get_area_files($context->id, 'theme_boost_comp', 'preset', 0, 'itemid, filepath, filename', false);
+    $files = $fs->get_area_files($context->id, 'theme_boost_comp_it', 'preset', 0, 'itemid, filepath, filename', false);
 
     $choices = [];
     foreach ($files as $file) {
@@ -58,32 +58,32 @@ if ($ADMIN->fulltree) {
     $choices['swift.scss'] = 'swift.scss';
     $choices['plain.scss'] = 'plain.scss';
 
-    $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'boost_comp');
+    $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'boost_comp_it');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Preset files setting.
-    $name = 'theme_boost_comp/presetfiles';
-    $title = get_string('presetfiles','theme_boost_comp');
-    $description = get_string('presetfiles_desc', 'theme_boost_comp');
+    $name = 'theme_boost_comp_it/presetfiles';
+    $title = get_string('presetfiles','theme_boost_comp_it');
+    $description = get_string('presetfiles_desc', 'theme_boost_comp_it');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
         array('maxfiles' => 20, 'accepted_types' => array('.scss')));
     $page->add($setting);
 
     // Background image setting.
-    $name = 'theme_boost_comp/backgroundimage';
-    $title = get_string('backgroundimage', 'theme_boost_comp');
-    $description = get_string('backgroundimage_desc', 'theme_boost_comp');
+    $name = 'theme_boost_comp_it/backgroundimage';
+    $title = get_string('backgroundimage', 'theme_boost_comp_it');
+    $description = get_string('backgroundimage_desc', 'theme_boost_comp_it');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'backgroundimage');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Variable $body-color.
     // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_boost_comp/brandcolor';
-    $title = get_string('brandcolor', 'theme_boost_comp');
-    $description = get_string('brandcolor_desc', 'theme_boost_comp');
+    $name = 'theme_boost_comp_it/brandcolor';
+    $title = get_string('brandcolor', 'theme_boost_comp_it');
+    $description = get_string('brandcolor_desc', 'theme_boost_comp_it');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -92,17 +92,17 @@ if ($ADMIN->fulltree) {
     $settings->add($page);
 
     // Advanced settings.
-    $page = new admin_settingpage('theme_boost_comp_advanced', get_string('advancedsettings', 'theme_boost_comp'));
+    $page = new admin_settingpage('theme_boost_comp_it_advanced', get_string('advancedsettings', 'theme_boost_comp_it'));
 
     // Raw SCSS to include before the content.
-    $setting = new admin_setting_scsscode('theme_boost_comp/scsspre',
-        get_string('rawscsspre', 'theme_boost_comp'), get_string('rawscsspre_desc', 'theme_boost_comp'), '', PARAM_RAW);
+    $setting = new admin_setting_scsscode('theme_boost_comp_it/scsspre',
+        get_string('rawscsspre', 'theme_boost_comp_it'), get_string('rawscsspre_desc', 'theme_boost_comp_it'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Raw SCSS to include after the content.
-    $setting = new admin_setting_scsscode('theme_boost_comp/scss', get_string('rawscss', 'theme_boost_comp'),
-        get_string('rawscss_desc', 'theme_boost_comp'), '', PARAM_RAW);
+    $setting = new admin_setting_scsscode('theme_boost_comp_it/scss', get_string('rawscss', 'theme_boost_comp_it'),
+        get_string('rawscss_desc', 'theme_boost_comp_it'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

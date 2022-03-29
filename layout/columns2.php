@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A two column layout for the boost_comp theme.
+ * A two column layout for the boost_comp_it theme.
  *
- * @package   theme_boost_comp
+ * @package   theme_boost_comp_it
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -83,5 +83,5 @@ $templatecontext = [
 $nav = $PAGE->flatnav;
 $templatecontext['flatnavigation'] = $nav;
 $templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
-echo $OUTPUT->render_from_template('theme_boost_comp/columns2', $templatecontext);
+echo $OUTPUT->render_from_template('theme_boost_comp_it/columns2', $templatecontext);
 
